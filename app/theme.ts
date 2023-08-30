@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import "@fontsource-variable/manrope";
+import "@fontsource-variable/manrope/index.css";
 
 const defaultTheme = createTheme({
   palette: {
