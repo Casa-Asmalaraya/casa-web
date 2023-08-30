@@ -24,7 +24,7 @@ export function useServerHttpHandler() {
       }
 
       if (error.request) {
-        return json({ statusCode: 503, data: "Server under maintenance" }, { status: 503 });
+        return json({ statusCode: 503, data: "Server dalam pemeliharaan" }, { status: 503 });
       }
     }
 
@@ -34,7 +34,7 @@ export function useServerHttpHandler() {
   return { handle };
 }
 
-export function useClientHttpHandler() {
+export function useServerClientMessage() {
   const alertDialog = useAlertDialog();
   async function handle(data: TypedResponse | null) {
     if (!data) {
