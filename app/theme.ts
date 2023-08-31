@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material";
-import "@fontsource-variable/manrope/index.css";
 
 const defaultTheme = createTheme({
   palette: {
@@ -38,7 +37,7 @@ const defaultTheme = createTheme({
     button: {
       textTransform: "none",
     },
-    fontFamily: ['"Manrope Variable"', "sans-serif"].join(","),
+    fontFamily: ['"Manrope"', "sans-serif"].join(","),
   },
 });
 
