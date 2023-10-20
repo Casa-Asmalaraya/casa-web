@@ -1,5 +1,5 @@
 import { Box, Stack, Typography, lighten, useTheme } from "@mui/material";
-import InboxOutlinedIcon from "@mui/icons-material/InboxOutlined";
+import { InboxOutlined } from "@mui/icons-material";
 
 function NoDataMessage() {
   const theme = useTheme();
@@ -15,7 +15,7 @@ function NoDataMessage() {
         height="100px"
         borderRadius="100%"
       >
-        <InboxOutlinedIcon sx={{ fontSize: "48px" }} color="primary" />
+        <InboxOutlined sx={{ fontSize: "48px" }} color="primary" />
       </Box>
       <Typography variant="h6" color="primary">
         Tidak ada data untuk ditampilkan

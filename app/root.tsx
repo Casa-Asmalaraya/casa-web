@@ -1,12 +1,17 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useNavigation } from "@remix-run/react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import theme from "./theme";
-import { LoadingProvider } from "./components/Loading";
-import { LoadingDialogProvider } from "./components/LoadingDialog";
 import { AlertDialogProvider } from "./components/AlertDialog";
 import { ConfirmationDialogProvider } from "./components/ConfirmationDialog";
+import { LoadingProvider, useLoading } from "./components/Loading";
+import { LoadingDialogProvider, useLoadingDialog } from "./components/LoadingDialog";
+import theme from "./theme";
+import { useEffect } from "react";
 
-export default function App() {
+export function meta() {
+  return [{ title: "LokalPlace" }];
+}
+
+export default function Root() {
   return (
     <html lang="en">
       <head>
@@ -33,8 +38,7 @@ export default function App() {
             <LoadingDialogProvider>
               <AlertDialogProvider>
                 <ConfirmationDialogProvider>
-                  {/* Child routes go here */}
-                  <Outlet />
+                  <App />
                 </ConfirmationDialogProvider>
               </AlertDialogProvider>
             </LoadingDialogProvider>
@@ -56,4 +60,27 @@ export default function App() {
       </body>
     </html>
   );
+}
+
+function App() {
+  const navigation = useNavigation();
+  const loading = useLoading();
+  const loadingDialog = useLoadingDialog();
+
+  useEffect(() => {
+    if (navigation.state === "submitting") {
+      loadingDialog.showLoadingDialog();
+    }
+
+    if (navigation.state === "loading") {
+      loading.showLoading();
+    }
+
+    if (navigation.state === "idle") {
+      loading.hideLoading();
+      loadingDialog.hideLoadingDialog();
+    }
+  }, [navigation.state]);
+
+  return <Outlet />;
 }

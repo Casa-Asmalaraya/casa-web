@@ -1,6 +1,6 @@
 import { Box, IconButton, InputBase, Stack, useTheme } from "@mui/material";
 import { useState } from "react";
-import CloseIcon from "@mui/icons-material/Close";
+import { Close } from "@mui/icons-material";
 
 function SearchBar({ onChanged }: { onChanged: (value?: string) => void }) {
   const theme = useTheme();
@@ -29,7 +29,7 @@ function SearchBar({ onChanged }: { onChanged: (value?: string) => void }) {
               onChanged(undefined);
             }}
           >
-            <CloseIcon fontSize="inherit" />
+            <Close fontSize="inherit" />
           </IconButton>
         )}
       </Stack>

@@ -1,5 +1,4 @@
 export interface OutSignInDto {
+  emailAddress?: string;
   password?: string;
-  // tenantCode?: string;
-  username?: string;
 }

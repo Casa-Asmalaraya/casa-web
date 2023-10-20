@@ -1,55 +1,8 @@
 import { Facebook, Instagram, Twitter } from "@mui/icons-material";
-import { Container, Toolbar, Typography, Button, AppBar as MuiAppBar, Stack, Box, Link, Paper } from "@mui/material";
-import { Outlet } from "@remix-run/react";
+import { Paper, Container, Stack, Typography, Link, Box } from "@mui/material";
+import logo from "~/assets/logo-text.png";
 
-export default function Layout() {
-  return (
-    <Box flex={1}>
-      <AppBar />
-      <Container component={"main"} maxWidth={"lg"} sx={{ p: 3, minHeight: "100vh" }}>
-        <Toolbar />
-        <Outlet />
-      </Container>
-      <Footer />
-    </Box>
-  );
-}
-
-function AppBar() {
-  return (
-    <MuiAppBar position="fixed" variant="outlined" elevation={0} component={"nav"}>
-      <Container maxWidth="lg">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              flex: 1,
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LocalPlace
-          </Typography>
-          <Stack gap={"8px"} direction={"row"} mr={"32px"}>
-            <Button>Jadi Patner LocalPlace</Button>
-            <Button>Cek Booking</Button>
-          </Stack>
-          <Stack gap={"8px"} direction={"row"}>
-            <Button variant="outlined">Masuk</Button>
-            <Button variant="contained" disableElevation>
-              Daftar
-            </Button>
-          </Stack>
-        </Toolbar>
-      </Container>
-    </MuiAppBar>
-  );
-}
-
-function Footer() {
+export default function MainFooter() {
   return (
     <Paper
       variant="outlined"
@@ -60,19 +13,17 @@ function Footer() {
       <Container maxWidth="lg">
         <Stack gap={"32px"}>
           <Stack gap={"32px"} direction={"row"}>
-            <Typography
-              variant="h6"
-              noWrap
+            <Box
               component="a"
               href="/"
+              flex="1"
+              color="inherit"
               sx={{
-                flex: 1,
-                color: "inherit",
                 textDecoration: "none",
               }}
             >
-              LocalPlace
-            </Typography>
+              <img width={"100px"} src={logo} />
+            </Box>
             <Stack flex={1} gap={"8px"}>
               <Typography variant="h6">About Us</Typography>
               <Typography variant="body2">

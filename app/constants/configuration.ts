@@ -1,3 +1,4 @@
 export class Configuration {
-  static baseUrl = "https://web-api.x-api.id";
+  static baseUrl = "http://localhost:5000";
+  static itemPerPage = 25;
 }
