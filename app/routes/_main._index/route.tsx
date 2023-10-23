@@ -11,7 +11,7 @@ import { UrlUtils } from "~/utils/url-utils";
 import Listing from "./Listing";
 
 export const meta: MetaFunction = () => {
-  return [{ title: "Cari, Datang, Healing - LokalPlace" }];
+  return [{ title: "LokalPlace" }];
 };
 
 export async function loader(args: LoaderFunctionArgs) {

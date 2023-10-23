@@ -6,14 +6,16 @@ import ListingPhotos from "./ListingPhotos";
 import ListingRule from "./ListingRule";
 import ListingSide from "./ListingSide";
 import ListingTitle from "./ListingTitle";
-import { useLoaderData } from "@remix-run/react";
+import { LoaderFunctionArgs, MetaArgs } from "@remix-run/node";
+import { loaderServer } from "./loader.server";
 import { DataResponse } from "~/data-response";
 import { InListingDto } from "~/dtos/listing/in-listing-dto";
-import { LoaderFunctionArgs } from "@remix-run/node";
-import { loaderServer } from "./loader.server";
 
-export const meta = () => {
-  return [{ title: "Cari, Datang, Healing - LokalPlace" }];
+export const meta = (args: MetaArgs) => {
+  const loaderData = args.data as DataResponse<InListingDto> | null;
+  const data = loaderData?.data;
+
+  return [{ title: `${data?.name} - LokalPlace` }];
 };
 
 export async function loader(args: LoaderFunctionArgs) {
