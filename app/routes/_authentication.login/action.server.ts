@@ -15,7 +15,7 @@ export async function actionServer({ request }: ActionFunctionArgs) {
     session.set("accessToken", response.accessToken!);
     session.set("refreshToken", response.refreshToken!);
 
-    return redirect("/listing", {
+    return redirect("/", {
       headers: {
         "Set-Cookie": await commitSession(session),
       },
