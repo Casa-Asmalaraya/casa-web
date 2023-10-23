@@ -18,7 +18,7 @@ export default function MainAppBar() {
             <img width={"100px"} src={logo} />
           </Box>
           <Stack gap={"8px"} direction={"row"} mr={"32px"}>
-            <Button>Jadi Patner LocalPlace</Button>
+            <Button>Jadi Patner LokalPlace</Button>
             <Button>Cek Booking</Button>
           </Stack>
           <Stack gap={"8px"} direction={"row"}>

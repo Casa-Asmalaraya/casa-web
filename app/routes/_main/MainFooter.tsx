@@ -43,25 +43,25 @@ export default function MainFooter() {
                 color="inherit"
                 sx={{ display: "flex", alignItems: "center", gap: "8px", color: "inherit", textDecoration: "none" }}
               >
-                <Facebook /> localplace
+                <Facebook /> LokalPlace
               </Link>
               <Link
                 href="https://www.instagram.com/"
                 color="inherit"
                 sx={{ display: "flex", alignItems: "center", gap: "8px", color: "inherit", textDecoration: "none" }}
               >
-                <Instagram /> localplace
+                <Instagram /> LokalPlace
               </Link>
               <Link
                 href="https://www.twitter.com/"
                 color="inherit"
                 sx={{ display: "flex", alignItems: "center", gap: "8px", color: "inherit", textDecoration: "none" }}
               >
-                <Twitter /> localplace
+                <Twitter /> LokalPlace
               </Link>
             </Stack>
           </Stack>
-          <Typography align={"center"}>Copyright © LocalPlace {new Date().getFullYear()}</Typography>
+          <Typography align={"center"}>Copyright © LokalPlace {new Date().getFullYear()}</Typography>
         </Stack>
       </Container>
     </Paper>
