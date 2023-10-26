@@ -23,7 +23,7 @@ export default function Page() {
   const loaderData = useLoaderData<DataResponse<InListingDto[]>>();
   const loading = useLoading();
 
-  const data = useCreateOrb(loaderData.data);
+  const data = useCreateOrb(loaderData?.data);
   const page = useRef(1);
   const searchQuery = useCreateOrb<string | undefined>(undefined);
 

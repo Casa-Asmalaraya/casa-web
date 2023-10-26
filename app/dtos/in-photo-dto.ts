@@ -1,4 +1,4 @@
-export interface InListingPhotoDto {
+export interface InPhotoDto {
   id?: number;
   url?: string;
   createdAt?: number;
