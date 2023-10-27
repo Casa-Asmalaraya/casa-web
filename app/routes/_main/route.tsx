@@ -22,7 +22,11 @@ export default function Layout() {
     >
       <Box flex={1}>
         <MainAppBar />
-        <Container component={"main"} maxWidth={"lg"} sx={{ p: 3, minHeight: "100vh" }}>
+        <Container
+          component={"main"}
+          maxWidth={"lg"}
+          sx={{ p: 3, display: "flex", flexDirection: "column", minHeight: "100vh" }}
+        >
           <Toolbar />
           <Outlet />
         </Container>

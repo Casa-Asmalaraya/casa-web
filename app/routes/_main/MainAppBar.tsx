@@ -41,7 +41,7 @@ export default function MainAppBar() {
           </Box>
           <Stack gap={"8px"} direction={"row"} mr={"32px"}>
             <Button>Jadi Patner LokalPlace</Button>
-            <Button>Cek Booking</Button>
+            <Button onClick={() => navigate("/booking")}>Cek Booking</Button>
           </Stack>
           {appContext?.profile ? (
             <Profile />
