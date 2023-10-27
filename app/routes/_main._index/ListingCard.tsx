@@ -2,18 +2,13 @@ import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import { useNumericFormat } from "react-number-format";
 import { InListingDto } from "~/dtos/listing/in-listing-dto";
 import { Link } from "@remix-run/react";
+import { UrlUtils } from "~/utils/url-utils";
 
 export default function ListingCard({ listing }: { listing: InListingDto }) {
   const numbericFormat = useNumericFormat({ thousandSeparator: true });
-  const slug = listing.name
-    ?.toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "");
 
   return (
-    <Link to={`/listing/${listing.id}/${slug}`} style={{ textDecoration: "unset" }}>
+    <Link to={`/listing/${listing.id}/${UrlUtils.createSlug(listing.name!)}`} style={{ textDecoration: "unset" }}>
       <Card variant={"outlined"} sx={{ borderRadius: "16px" }}>
         <CardMedia sx={{ height: 150 }} image={listing.coverPhoto?.url} title="The Home Stay Thumbnail Image" />
         <CardContent>
