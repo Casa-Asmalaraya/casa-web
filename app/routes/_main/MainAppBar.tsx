@@ -40,7 +40,7 @@ export default function MainAppBar() {
             <img width={"100px"} src={logo} />
           </Box>
           <Stack gap={"8px"} direction={"row"} mr={"32px"}>
-            <Button>Jadi Patner LokalPlace</Button>
+            <Button>Jadi Patner lokalplace</Button>
             <Button onClick={() => navigate("/my-booking")}>Cek Booking</Button>
           </Stack>
           {appContext?.profile ? (

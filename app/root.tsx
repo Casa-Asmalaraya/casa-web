@@ -6,9 +6,11 @@ import { LoadingProvider, useLoading } from "./components/Loading";
 import { LoadingDialogProvider, useLoadingDialog } from "./components/LoadingDialog";
 import theme from "./theme";
 import { useEffect } from "react";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterLuxon } from "@mui/x-date-pickers/AdapterLuxon";
 
 export function meta() {
-  return [{ title: "LokalPlace" }];
+  return [{ title: "lokalplace" }];
 }
 
 export default function Root() {
@@ -34,15 +36,17 @@ export default function Root() {
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
-          <LoadingProvider>
-            <LoadingDialogProvider>
-              <AlertDialogProvider>
-                <ConfirmationDialogProvider>
-                  <App />
-                </ConfirmationDialogProvider>
-              </AlertDialogProvider>
-            </LoadingDialogProvider>
-          </LoadingProvider>
+          <LocalizationProvider dateAdapter={AdapterLuxon}>
+            <LoadingProvider>
+              <LoadingDialogProvider>
+                <AlertDialogProvider>
+                  <ConfirmationDialogProvider>
+                    <App />
+                  </ConfirmationDialogProvider>
+                </AlertDialogProvider>
+              </LoadingDialogProvider>
+            </LoadingProvider>
+          </LocalizationProvider>
         </ThemeProvider>
 
         {/* Manages scroll position for client-side transitions */}

@@ -14,7 +14,7 @@ import { useLoading } from "~/components/Loading";
 import { UrlUtils } from "~/utils/url-utils";
 
 export function meta() {
-  return [{ title: "Cek Booking - LokalPlace" }];
+  return [{ title: "Cek Booking - lokalplace" }];
 }
 
 export async function loader(args: LoaderFunctionArgs) {

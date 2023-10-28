@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 import { Paper, Container, Stack, Typography, Link, Box } from "@mui/material";
 import logo from "~/assets/logo-text.png";
+import TikTokIcon from "~/components/TikTokIcon";
 
 export default function MainFooter() {
   return (
@@ -32,36 +33,32 @@ export default function MainFooter() {
             </Stack>
             <Stack flex={1} gap={"8px"}>
               <Typography variant="h6">Contact Us</Typography>
-              <Typography variant="body2">123 Main Street, Anytown</Typography>
-              <Typography variant="body2">Email: info@example.com</Typography>
+              <Typography variant="body2">
+                Institut Teknologi Indonesia, Jl. Raya Puspitek, Setu, Kec. Serpong, Kota Tangerang Selatan, Banten
+                15314
+              </Typography>
+              <Typography variant="body2">Email: casa.asmalaraya@gmail.com</Typography>
               <Typography variant="body2">Phone: +1 234 567 8901</Typography>
             </Stack>
             <Stack flex={1} gap={"8px"}>
               <Typography variant="h6">Follow Us</Typography>
               <Link
-                href="https://www.facebook.com/"
+                href="https://www.tiktok.com/@lokalplace.com"
                 color="inherit"
                 sx={{ display: "flex", alignItems: "center", gap: "8px", color: "inherit", textDecoration: "none" }}
               >
-                <Facebook /> LokalPlace
+                <TikTokIcon /> @lokalplace.com
               </Link>
               <Link
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/casa.asmalaraya"
                 color="inherit"
                 sx={{ display: "flex", alignItems: "center", gap: "8px", color: "inherit", textDecoration: "none" }}
               >
-                <Instagram /> LokalPlace
-              </Link>
-              <Link
-                href="https://www.twitter.com/"
-                color="inherit"
-                sx={{ display: "flex", alignItems: "center", gap: "8px", color: "inherit", textDecoration: "none" }}
-              >
-                <Twitter /> LokalPlace
+                <Instagram /> casa.asmalaraya
               </Link>
             </Stack>
           </Stack>
-          <Typography align={"center"}>Copyright © LokalPlace {new Date().getFullYear()}</Typography>
+          <Typography align={"center"}>Copyright © lokalplace {new Date().getFullYear()}</Typography>
         </Stack>
       </Container>
     </Paper>

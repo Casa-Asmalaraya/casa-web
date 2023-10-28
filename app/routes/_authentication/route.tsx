@@ -4,7 +4,7 @@ import AuthenticationHeader from "./AuthenticationHeader";
 import { V2_MetaArgs } from "@remix-run/node";
 
 export function meta({ location }: V2_MetaArgs) {
-  return [{ title: `${location.pathname === "/login" ? "Masuk" : "Daftar"} - LokalPlace` }];
+  return [{ title: `${location.pathname === "/login" ? "Masuk" : "Daftar"} - lokalplace` }];
 }
 
 export default function Layout() {

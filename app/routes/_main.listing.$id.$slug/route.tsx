@@ -15,7 +15,7 @@ export const meta = (args: MetaArgs) => {
   const loaderData = args.data as DataResponse<InListingDto> | null;
   const data = loaderData?.data;
 
-  return [{ title: `${data?.name} - LokalPlace` }];
+  return [{ title: `${data?.name} - lokalplace` }];
 };
 
 export async function loader(args: LoaderFunctionArgs) {
