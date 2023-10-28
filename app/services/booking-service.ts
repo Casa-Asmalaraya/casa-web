@@ -1,5 +1,6 @@
 import { axiosInstance } from "~/axios-instance";
 import { InBookingDto } from "~/dtos/booking/in-booking-dto";
+import { OutBookingDto } from "~/dtos/booking/out-booking-dto";
 import { UrlUtils } from "~/utils/url-utils";
 
 export class BookingService {
@@ -32,6 +33,20 @@ export class BookingService {
     const paths = ["booking/", id.toString()];
 
     const response = await axiosInstance.get(UrlUtils.generateUrl(paths), {
+      headers: options?.accessToken ? { Authorization: `Bearer ${options.accessToken}` } : {},
+      signal: options?.signal,
+    });
+
+    return response.data.data as InBookingDto;
+  }
+
+  static async addAsync(
+    dto: OutBookingDto,
+    options?: { accessToken?: string; signal?: AbortSignal }
+  ): Promise<InBookingDto> {
+    const paths = ["booking"];
+
+    const response = await axiosInstance.post(UrlUtils.generateUrl(paths), dto, {
       headers: options?.accessToken ? { Authorization: `Bearer ${options.accessToken}` } : {},
       signal: options?.signal,
     });

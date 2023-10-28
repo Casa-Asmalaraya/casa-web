@@ -2,7 +2,7 @@
 export default {
   ignoredRouteFiles: ["**/.*"],
   serverModuleFormat: "esm",
-  serverDependenciesToBundle: ["axios"],
+  serverDependenciesToBundle: ["axios", /^@mui*/],
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // publicPath: "/build/",

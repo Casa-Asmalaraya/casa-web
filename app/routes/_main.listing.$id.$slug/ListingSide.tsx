@@ -1,10 +1,11 @@
 import { Paper, Stack, Typography, Button } from "@mui/material";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useNavigate } from "@remix-run/react";
 import { useNumericFormat } from "react-number-format";
 import { DataResponse } from "~/data-response";
 import { InListingDto } from "~/dtos/listing/in-listing-dto";
 
 export default function ListingSide() {
+  const navigate = useNavigate();
   const numbericFormat = useNumericFormat({ thousandSeparator: true });
   const loaderData = useLoaderData<DataResponse<InListingDto> | null>();
   const data = loaderData?.data;
@@ -25,7 +26,7 @@ export default function ListingSide() {
           {data?.address}, {location}
         </Typography>
         <Stack spacing={"8px"}>
-          <Button variant="contained" disableElevation>
+          <Button variant="contained" disableElevation onClick={() => navigate(`/booking/${data?.id}`)}>
             Booking Sekarang
           </Button>
           <Typography variant="caption">Minimum 1 dan maksimum 10 hari tinggal</Typography>

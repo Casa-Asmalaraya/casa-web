@@ -35,7 +35,7 @@ export default function ListingCard({ listing }: { listing: InListingDto }) {
             }}
             textTransform={"capitalize"}
           >
-            {listing.province?.name?.toLowerCase()}, {listing.regency?.name?.toLowerCase()}
+            {listing.regency?.name?.toLowerCase()}, {listing.province?.name?.toLowerCase()}
           </Typography>
           <Typography variant={"body2"} mb={"8px"}>
             5 Reviews

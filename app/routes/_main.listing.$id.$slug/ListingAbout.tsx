@@ -12,7 +12,7 @@ export default function ListingAbout() {
 
   return (
     <Stack spacing={"16px"}>
-      <Typography variant="h6">Tentang Home Stay Ini</Typography>
+      <Typography variant="h6">Tentang {data?.name}</Typography>
       <MuiMarkdown overrides={{ ...getOverrides }} children={description} />
     </Stack>
   );

@@ -1,6 +1,6 @@
-import { TableRow, TableCell, Box } from "@mui/material";
+import { TableRow, TableCell } from "@mui/material";
 import { useNavigate } from "@remix-run/react";
-import moment from "moment";
+import { DateTime } from "luxon";
 import { useRef } from "react";
 import { TableVirtuoso } from "react-virtuoso";
 import { Orb, useOrb } from "worb";
@@ -30,6 +30,7 @@ export default function PageTable({ data, onEndReached }: { data: Orb<InBookingD
             backgroundColor: "background.paper",
           }}
         >
+          <TableCell sx={{ whiteSpace: "nowrap" }}></TableCell>
           <TableCell sx={{ whiteSpace: "nowrap" }}>Listing</TableCell>
           <TableCell sx={{ whiteSpace: "nowrap" }}>Dari</TableCell>
           <TableCell sx={{ whiteSpace: "nowrap" }}>Sampai</TableCell>
@@ -49,9 +50,15 @@ export default function PageTable({ data, onEndReached }: { data: Orb<InBookingD
           >
             {item.listing?.name}
           </TableCell>
-          <TableCell sx={{ whiteSpace: "nowrap" }}> {moment(new Date(item.fromDate!)).format("dd MM YYYY")}</TableCell>
-          <TableCell sx={{ whiteSpace: "nowrap" }}>{moment(new Date(item.toDate!)).format("dd MM YYYY")}</TableCell>
-          <TableCell sx={{ whiteSpace: "nowrap" }}> {moment(new Date(item.createdAt!)).format("dd MM YYYY")}</TableCell>
+          <TableCell sx={{ whiteSpace: "nowrap" }}>
+            {DateTime.fromMillis(item.fromDate!).toFormat("cccc, dd LLL yyyy")}
+          </TableCell>
+          <TableCell sx={{ whiteSpace: "nowrap" }}>
+            {DateTime.fromMillis(item.toDate!).toFormat("cccc, dd LLL yyyy")}
+          </TableCell>
+          <TableCell sx={{ whiteSpace: "nowrap" }}>
+            {DateTime.fromMillis(item.createdAt!).toFormat("cccc, dd LLL yyyy")}
+          </TableCell>
           <TableCell sx={{ whiteSpace: "nowrap" }}> {item.status}</TableCell>
         </>
       )}
