@@ -5,7 +5,7 @@ import { TableComponents } from "react-virtuoso";
 function VirtuosoTableComponents<T>(): TableComponents<T> {
   return {
     Scroller: React.forwardRef((props, ref) => (
-      <TableContainer component={Paper} variant="outlined" {...props} ref={ref} />
+      <TableContainer component={Paper} variant="outlined" {...props} ref={ref} sx={{ borderRadius: "16px" }} />
     )),
     Table: (props) => <Table {...props} style={{ borderCollapse: "separate" }} />,
     TableHead: TableHead,
