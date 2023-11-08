@@ -32,9 +32,8 @@ export default function PageTable({ data, onEndReached }: { data: Orb<InBookingD
         >
           <TableCell sx={{ whiteSpace: "nowrap" }}></TableCell>
           <TableCell sx={{ whiteSpace: "nowrap" }}>Listing</TableCell>
-          <TableCell sx={{ whiteSpace: "nowrap" }}>Dari</TableCell>
-          <TableCell sx={{ whiteSpace: "nowrap" }}>Sampai</TableCell>
-          <TableCell sx={{ whiteSpace: "nowrap" }}>Booking Pada</TableCell>
+          <TableCell sx={{ whiteSpace: "nowrap" }}>Booking Untuk</TableCell>
+          <TableCell sx={{ whiteSpace: "nowrap" }}>Tanggal Booking</TableCell>
           <TableCell sx={{ whiteSpace: "nowrap" }}>Status</TableCell>
           <TableCell></TableCell>
         </TableRow>
@@ -51,11 +50,10 @@ export default function PageTable({ data, onEndReached }: { data: Orb<InBookingD
             {item.listing?.name}
           </TableCell>
           <TableCell sx={{ whiteSpace: "nowrap" }}>
-            {DateTime.fromMillis(item.fromDate!).toFormat("cccc, dd LLL yyyy")}
-          </TableCell>
-          <TableCell sx={{ whiteSpace: "nowrap" }}>
+            {DateTime.fromMillis(item.fromDate!).toFormat("cccc, dd LLL yyyy")} -{" "}
             {DateTime.fromMillis(item.toDate!).toFormat("cccc, dd LLL yyyy")}
           </TableCell>
+
           <TableCell sx={{ whiteSpace: "nowrap" }}>
             {DateTime.fromMillis(item.createdAt!).toFormat("cccc, dd LLL yyyy")}
           </TableCell>
