@@ -3,7 +3,7 @@ import { DataResponse } from "~/data-response";
 import { InBookingDto } from "~/dtos/booking/in-booking-dto";
 import { useHttpHandler } from "~/hooks/useHttpHandler.server";
 import { BookingService } from "~/services/booking-service";
-import { getSession } from "~/sessions";
+import { getSession } from "~/session.server";
 
 export async function loaderServer({ request }: LoaderFunctionArgs) {
   const httpHandler = useHttpHandler();

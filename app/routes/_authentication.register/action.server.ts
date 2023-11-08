@@ -1,7 +1,7 @@
 import { ActionFunctionArgs, redirect } from "@remix-run/node";
 import { useHttpHandler } from "~/hooks/useHttpHandler.server";
 import { AuthenticationService } from "~/services/authentication-service";
-import { getSession, commitSession } from "~/sessions";
+import { getSession, commitSession } from "~/session.server";
 
 export async function actionServer({ request }: ActionFunctionArgs) {
   const httpHandler = useHttpHandler();

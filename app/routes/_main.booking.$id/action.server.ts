@@ -2,7 +2,7 @@ import { ActionFunctionArgs, redirect } from "@remix-run/node";
 import { OutBookingDto } from "~/dtos/booking/out-booking-dto";
 import { useHttpHandler } from "~/hooks/useHttpHandler.server";
 import { BookingService } from "~/services/booking-service";
-import { getSession } from "~/sessions";
+import { getSession } from "~/session.server";
 
 export async function actionServer({ request, params }: ActionFunctionArgs) {
   const httpHandler = useHttpHandler();

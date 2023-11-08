@@ -3,7 +3,7 @@ import { DataResponse } from "~/data-response";
 import { InListingDto } from "~/dtos/listing/in-listing-dto";
 import { useHttpHandler } from "~/hooks/useHttpHandler.server";
 import { ListingService } from "~/services/listing-service";
-import { getSession } from "~/sessions";
+import { getSession } from "~/session.server";
 
 export async function loaderServer({ request, params }: LoaderFunctionArgs) {
   const httpHandler = useHttpHandler();

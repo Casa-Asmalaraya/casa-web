@@ -13,7 +13,8 @@ export interface InListingDto {
   maximumGuest?: number;
   price?: number;
   address?: string;
-  googleMapLink?: string;
+  lat?: number;
+  long?: number;
   province?: InRegionDto | null;
   regency?: InRegionDto | null;
   district?: InRegionDto | null;

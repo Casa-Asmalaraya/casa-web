@@ -1,4 +1,4 @@
-import { axiosInstance } from "~/axios-instance";
+import { axiosInstance } from "~/axios-instance.server";
 import { InRegionDto } from "~/dtos/region/in-region-dto";
 import { UrlUtils } from "~/utils/url-utils";
 

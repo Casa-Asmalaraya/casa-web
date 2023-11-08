@@ -1,4 +1,4 @@
-import { axiosInstance } from "~/axios-instance";
+import { axiosInstance } from "~/axios-instance.server";
 import { InTokenDto } from "~/dtos/authentication/in-token-dto";
 import { OutSignInDto } from "~/dtos/authentication/out-sign-in-dto";
 import { UrlUtils } from "~/utils/url-utils";

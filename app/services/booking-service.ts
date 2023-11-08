@@ -1,4 +1,4 @@
-import { axiosInstance } from "~/axios-instance";
+import { axiosInstance } from "~/axios-instance.server";
 import { InBookingDto } from "~/dtos/booking/in-booking-dto";
 import { OutBookingDto } from "~/dtos/booking/out-booking-dto";
 import { UrlUtils } from "~/utils/url-utils";

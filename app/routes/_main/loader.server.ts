@@ -3,7 +3,7 @@ import { DataResponse } from "~/data-response";
 import { InProfileDto } from "~/dtos/profile/in-profile-dto";
 import { AuthenticationService } from "~/services/authentication-service";
 import { ProfileService } from "~/services/profile-service";
-import { getSession } from "~/sessions";
+import { getSession } from "~/session.server";
 
 export async function loaderServer({ request }: LoaderFunctionArgs) {
   const session = await getSession(request.headers.get("Cookie"));
