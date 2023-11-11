@@ -27,7 +27,7 @@ export default function Page() {
     <Stack spacing={"32px"}>
       <ListingTitle />
       <ListingCoverImage />
-      <Stack spacing={"32px"} direction={"row"}>
+      <Stack spacing={"32px"} direction={"row"} display={{ xs: "none", md: "flex" }}>
         <Stack overflow={"hidden"} flex={4} spacing={"32px"}>
           <ListingAbout />
           <ListingFacility />
@@ -37,6 +37,13 @@ export default function Page() {
         <Box flex={2}>
           <ListingSide />
         </Box>
+      </Stack>
+      <Stack spacing={"32px"} display={{ md: "none" }}>
+        <ListingSide />
+        <ListingAbout />
+        <ListingFacility />
+        <ListingRule />
+        <ListingPhotos />
       </Stack>
     </Stack>
   );

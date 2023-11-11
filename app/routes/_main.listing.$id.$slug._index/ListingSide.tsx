@@ -18,7 +18,7 @@ export default function ListingSide() {
         <Typography variant="h6">Rp {numbericFormat.format!((data?.price ?? 0).toString())}/Malam</Typography>
         <iframe
           width="100%"
-          height="350"
+          height="300"
           src="https://www.openstreetmap.org/export/embed.html?bbox=106.6275715827942%2C-6.176758294851963%2C106.64323568344118%2C-6.1671903114226945&amp;layer=mapnik"
           style={{ border: "none", borderRadius: "16px" }}
         ></iframe>

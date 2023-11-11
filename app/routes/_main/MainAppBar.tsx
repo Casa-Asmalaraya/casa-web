@@ -13,6 +13,7 @@ import {
   Menu,
   MenuItem,
   MenuList,
+  Divider,
 } from "@mui/material";
 import { useNavigate } from "@remix-run/react";
 import { useState } from "react";
@@ -25,7 +26,7 @@ export default function MainAppBar() {
   const appContext = useAppContext();
 
   return (
-    <AppBar position="fixed" variant="outlined" elevation={0} component={"nav"}>
+    <AppBar position="fixed" elevation={0} component={"nav"}>
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Box
@@ -34,13 +35,14 @@ export default function MainAppBar() {
             flex="1"
             color="inherit"
             sx={{
+              display: "flex",
+              alignItems: "center",
               textDecoration: "none",
             }}
           >
             <img width={"100px"} src={logo} />
           </Box>
           <Stack gap={"8px"} direction={"row"} mr={"32px"}>
-            <Button>Jadi Patner lokalplace</Button>
             <Button onClick={() => navigate("/my-booking")}>Cek Booking</Button>
           </Stack>
           {appContext?.profile ? (
@@ -57,6 +59,7 @@ export default function MainAppBar() {
           )}
         </Toolbar>
       </Container>
+      <Divider></Divider>
     </AppBar>
   );
 }

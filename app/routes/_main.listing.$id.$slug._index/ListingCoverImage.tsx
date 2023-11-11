@@ -10,7 +10,7 @@ export default function ListingCoverImage() {
   return (
     <Box
       width={"100%"}
-      height={"600px"}
+      height={{ xs: "300px", md: "600px" }}
       component={"img"}
       borderRadius={"16px"}
       sx={{ objectFit: "cover" }}

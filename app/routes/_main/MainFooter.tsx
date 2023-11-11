@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter } from "@mui/icons-material";
+import { Instagram } from "@mui/icons-material";
 import { Paper, Container, Stack, Typography, Link, Box } from "@mui/material";
 import logo from "~/assets/logo-text.png";
 import TikTokIcon from "~/components/TikTokIcon";
@@ -9,11 +9,11 @@ export default function MainFooter() {
       variant="outlined"
       component={"footer"}
       square
-      sx={{ padding: "16px", borderLeft: "none", borderRight: "none", borderBottom: "none" }}
+      sx={{ py: "32px", px: "16px", borderLeft: "none", borderRight: "none", borderBottom: "none" }}
     >
       <Container maxWidth="lg">
         <Stack gap={"32px"}>
-          <Stack gap={"32px"} direction={"row"}>
+          <Stack gap={"32px"} direction={{ xs: "column", md: "row" }}>
             <Box
               component="a"
               href="/"
