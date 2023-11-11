@@ -1,4 +1,4 @@
 export class Configuration {
-  static baseUrl = "http://localhost:8001";
+  static baseUrl = "https://web-api.lokalplace.com";
   static itemPerPage = 25;
 }
