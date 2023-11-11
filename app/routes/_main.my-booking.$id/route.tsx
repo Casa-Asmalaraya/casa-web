@@ -8,6 +8,7 @@ import { BookingHeader } from "./BookingHeader";
 import { BookingDetail } from "./BookingDetail";
 import { BookingPaymentDetail } from "./BookingPaymentDetail";
 import { BookingGuest } from "./BookingGuest";
+import { BookingListingDetail } from "./BookingListingDetail";
 
 export function meta(args: MetaArgs) {
   const loaderData = args.data as DataResponse<InBookingDto> | null;
@@ -34,6 +35,7 @@ export default function Page() {
       <BookingHeader />
       <BookingDetail />
       <BookingPaymentDetail />
+      <BookingListingDetail />
       <BookingGuest />
     </Stack>
   );
