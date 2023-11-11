@@ -1,4 +1,10 @@
-import { AccountCircleOutlined, SettingsOutlined, LogoutOutlined } from "@mui/icons-material";
+import {
+  AccountCircleOutlined,
+  SettingsOutlined,
+  LogoutOutlined,
+  PaymentOutlined,
+  BedOutlined,
+} from "@mui/icons-material";
 import {
   AppBar,
   Container,
@@ -102,13 +108,19 @@ function Profile() {
             <ListItemIcon>
               <AccountCircleOutlined fontSize="small" />
             </ListItemIcon>
-            <ListItemText>Profile</ListItemText>
+            <ListItemText>Profil</ListItemText>
           </MenuItem>
           <MenuItem>
             <ListItemIcon>
-              <SettingsOutlined fontSize="small" />
+              <PaymentOutlined fontSize="small" />
             </ListItemIcon>
-            <ListItemText>Settings</ListItemText>
+            <ListItemText>Saldo Saya</ListItemText>
+          </MenuItem>
+          <MenuItem>
+            <ListItemIcon>
+              <BedOutlined fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>Cek Booking</ListItemText>
           </MenuItem>
           <MenuItem>
             <ListItemIcon>
