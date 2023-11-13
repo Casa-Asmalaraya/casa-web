@@ -27,7 +27,7 @@ export default function Page() {
 
   return (
     <Stack spacing={"16px"}>
-      {data?.payment?.paymentStatus != "Paid" && (
+      {!data?.payment?.paidAt && (
         <Alert severity="warning" sx={{ borderRadius: "16px" }}>
           Pembayaran belum dilakukan
         </Alert>

@@ -2,7 +2,7 @@ export interface InBookingPaymentDto {
   id?: number;
   paymentLink?: string;
   paymentAmount?: number;
-  paymentStatus?: string;
+  paidAt?: number;
   expiredAt?: number;
   createdAt?: number;
   updatedAt?: number;
