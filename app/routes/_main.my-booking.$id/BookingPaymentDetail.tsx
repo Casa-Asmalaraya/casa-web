@@ -15,9 +15,15 @@ export function BookingPaymentDetail() {
     <Paper variant="outlined" sx={{ p: "16px", borderRadius: "16px" }}>
       <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
         <Typography variant="h6">Detail Pembayaran</Typography>
-        <Button variant="contained" disableElevation onClick={() => window.open(data?.payment?.paymentLink, "_blank")}>
-          Bayar Sekarang
-        </Button>
+        {!data?.payment?.paidAt && (
+          <Button
+            variant="contained"
+            disableElevation
+            onClick={() => window.open(data?.payment?.paymentLink, "_blank")}
+          >
+            Bayar Sekarang
+          </Button>
+        )}
       </Stack>
       <List disablePadding>
         <ListItem disableGutters>
@@ -27,7 +33,7 @@ export function BookingPaymentDetail() {
           />
         </ListItem>
         <ListItem disableGutters>
-          <ListItemText primary="Status Pembayaran" secondary={data?.payment?.paymentStatus} />
+          <ListItemText primary="Status Pembayaran" secondary={data?.payment?.paidAt ? "Paid" : "Unpaid"} />
         </ListItem>
         <ListItem disableGutters>
           <ListItemText

@@ -33,8 +33,8 @@ export async function actionServer({ request, params }: ActionFunctionArgs) {
       ],
     };
 
-    await BookingService.addAsync(data, { accessToken: session.data.accessToken });
-    return redirect("/my-booking");
+    const result = await BookingService.addAsync(data, { accessToken: session.data.accessToken });
+    return redirect(`/my-booking/${result.id}`);
   } catch (error) {
     return httpHandler.handle(error);
   }

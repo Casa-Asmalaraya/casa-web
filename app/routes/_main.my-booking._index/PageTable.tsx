@@ -44,9 +44,7 @@ export default function PageTable({ data, onEndReached }: { data: Orb<InBookingD
           <TableCell sx={{ whiteSpace: "nowrap" }}>
             {DateTime.fromMillis(item.createdAt!).toFormat("cccc, dd LLL yyyy")}
           </TableCell>
-          <TableCell sx={{ whiteSpace: "nowrap" }}>
-            {item.payment?.paymentStatus == "Paid" ? item.bookingStatus : "Unpaid"}
-          </TableCell>
+          <TableCell sx={{ whiteSpace: "nowrap" }}>{item.payment?.paidAt ? item.bookingStatus : "Unpaid"}</TableCell>
           <TableCell sx={{ whiteSpace: "nowrap" }}>
             <Stack direction="row" justifyContent="end">
               <IconButton onClick={() => navigate(`/my-booking/${item.id}`)}>

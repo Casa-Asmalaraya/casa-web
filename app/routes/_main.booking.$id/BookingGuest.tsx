@@ -18,7 +18,7 @@ export function BookingGuest({
   return (
     <Stack>
       <Typography variant="h6">Jumlah Tamu</Typography>
-      <List>
+      <List disablePadding>
         <ListItem
           disableGutters
           secondaryAction={

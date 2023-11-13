@@ -11,6 +11,7 @@ import { loaderServer } from "./loader.server";
 import { useActionData, useSubmit } from "@remix-run/react";
 import { actionServer } from "./action.server";
 import { useClientMessage } from "~/hooks/useClientMessage";
+import { BookingListingDetail } from "./BookingListingDetail";
 
 export const meta = (args: MetaArgs) => {
   const loaderData = args.data as DataResponse<InListingDto> | null;
@@ -54,8 +55,9 @@ export default function Page() {
   }
 
   return (
-    <Stack direction={"row"} spacing={"32px"}>
+    <Stack direction={{ xs: "column", md: "row" }} spacing={"32px"}>
       <Stack flex={3} spacing="32px">
+        <BookingListingDetail />
         <BookingDate fromDate={fromDate} toDate={toDate} setFromDate={setFromDate} setToDate={setToDate} />
         <BookingGuest
           adults={adults}

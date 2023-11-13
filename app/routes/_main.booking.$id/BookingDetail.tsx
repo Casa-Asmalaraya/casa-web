@@ -4,6 +4,7 @@ import { DateTime } from "luxon";
 import { useNumericFormat } from "react-number-format";
 import { DataResponse } from "~/data-response";
 import { InListingDto } from "~/dtos/listing/in-listing-dto";
+import { BookingListingDetail } from "./BookingListingDetail";
 
 export function BookingDetail({
   fromDate,
@@ -26,22 +27,6 @@ export function BookingDetail({
   return (
     <Paper variant="outlined" sx={{ padding: "16px", borderRadius: "16px" }}>
       <Stack spacing={"16px"}>
-        <Stack direction={"row"} spacing={"16px"}>
-          <Box
-            width={"75px"}
-            height={"75px"}
-            component={"img"}
-            borderRadius={"16px"}
-            sx={{ objectFit: "cover" }}
-            src={"https://sgp1.digitaloceanspaces.com/casa-space/befee089-2e77-402c-8a85-a2f4c3805281.webp"}
-          ></Box>
-          <Stack>
-            <Typography variant="body1" fontWeight={"500"}>
-              {data?.name}
-            </Typography>
-            <Typography variant="body2">Jalan Pandawa No.88A, Kelapa Dua, Kabupaten Tangerang, Banten</Typography>
-          </Stack>
-        </Stack>
         <Stack spacing={"4px"}>
           <Typography variant="h6">Detail Harga</Typography>
           <Stack>
