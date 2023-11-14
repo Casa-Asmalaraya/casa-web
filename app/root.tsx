@@ -1,68 +1,89 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useNavigation } from "@remix-run/react";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import { AlertDialogProvider } from "./components/AlertDialog";
 import { ConfirmationDialogProvider } from "./components/ConfirmationDialog";
 import { LoadingProvider, useLoading } from "./components/Loading";
 import { LoadingDialogProvider, useLoadingDialog } from "./components/LoadingDialog";
 import theme from "./theme";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterLuxon } from "@mui/x-date-pickers/AdapterLuxon";
+import { withEmotionCache } from "@emotion/react";
+import ClientStyleContext from "./contexts/ClientStyleContext";
+import useEnhancedEffect from "@mui/material/utils/useEnhancedEffect";
 
 export function meta() {
   return [{ title: "lokalplace" }];
 }
 
-export default function Root() {
+interface DocumentProps {
+  children: React.ReactNode;
+  title?: string;
+}
+
+const Document = withEmotionCache(({ children, title }: DocumentProps, emotionCache) => {
+  const clientStyleData = useContext(ClientStyleContext);
+
+  // Only executed on client
+  useEnhancedEffect(() => {
+    // re-link sheet container
+    emotionCache.sheet.container = document.head;
+    // re-inject tags
+    const tags = emotionCache.sheet.tags;
+    emotionCache.sheet.flush();
+    tags.forEach((tag) => {
+      // eslint-disable-next-line no-underscore-dangle
+      (emotionCache.sheet as any)._insertTag(tag);
+    });
+    // reset cache to reapply global styles
+    clientStyleData.reset();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        {/* All meta exports on all routes will go here */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="theme-color" content={theme.palette.primary.main} />
+        {title ? <title>{title}</title> : null}
         <Meta />
-
-        {/* All link exports on all routes will go here */}
         <Links />
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Open+Sans:wght@400;500&display=swap"
           rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
         />
+        <meta name="emotion-insertion-point" content="emotion-insertion-point" />
       </head>
       <body>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <LocalizationProvider dateAdapter={AdapterLuxon}>
-            <LoadingProvider>
-              <LoadingDialogProvider>
-                <AlertDialogProvider>
-                  <ConfirmationDialogProvider>
-                    <App />
-                  </ConfirmationDialogProvider>
-                </AlertDialogProvider>
-              </LoadingDialogProvider>
-            </LoadingProvider>
-          </LocalizationProvider>
-        </ThemeProvider>
-
-        {/* Manages scroll position for client-side transitions */}
-        {/* If you use a nonce-based content security policy for scripts, you must provide the `nonce` prop. Otherwise, omit the nonce prop as shown here. */}
+        {children}
         <ScrollRestoration />
-
-        {/* Script tags go here */}
-        {/* If you use a nonce-based content security policy for scripts, you must provide the `nonce` prop. Otherwise, omit the nonce prop as shown here. */}
         <Scripts />
-
-        {/* Sets up automatic reload when you change code */}
-        {/* and only does anything during development */}
-        {/* If you use a nonce-based content security policy for scripts, you must provide the `nonce` prop. Otherwise, omit the nonce prop as shown here. */}
         <LiveReload />
       </body>
     </html>
+  );
+});
+
+export default function Root() {
+  return (
+    <Document>
+      <ThemeProvider theme={theme}>
+        <LocalizationProvider dateAdapter={AdapterLuxon}>
+          <LoadingProvider>
+            <LoadingDialogProvider>
+              <AlertDialogProvider>
+                <ConfirmationDialogProvider>
+                  <App />
+                </ConfirmationDialogProvider>
+              </AlertDialogProvider>
+            </LoadingDialogProvider>
+          </LoadingProvider>
+        </LocalizationProvider>
+      </ThemeProvider>
+    </Document>
   );
 }
 
